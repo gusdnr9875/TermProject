@@ -25,4 +25,36 @@ public class Mainpage extends AppCompatActivity {
 
     }
 
+
+
+    /*나무 버튼 클릭*/
+    public void tree(View target){
+        Intent intent = new Intent(getApplicationContext(), Family_Tree.class);
+        startActivity(intent);
+    }
+    /*퀘스트 버튼 클릭*/
+    public void quest(View target){
+        Intent intent = new Intent(getApplicationContext(), Family_Quest.class);
+        startActivity(intent);
+    }
+    /*갤러리 버튼 클릭*/
+    public void gallery(View target){
+        Intent intent = new Intent(getApplicationContext(), Family_Gallery.class);
+        startActivity(intent);
+    }
+    /*일정 버튼 클릭*/
+    public void calendar(View target){
+        Intent intent = new Intent(getApplicationContext(), Family_Calendar.class);
+        startActivity(intent);
+    }
+    /*데이트코스 버튼 클릭*/
+    public void date(View target){
+        Intent intent = new Intent(getApplicationContext(), Family_Date.class);
+        startActivity(intent);
+    }
+    /*나가기 버튼 클릭(미완성)*/
+    public void exit(View target){
+       finish();
+    }
+
 }
