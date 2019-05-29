@@ -12,8 +12,10 @@ public class Mainpage extends AppCompatActivity {
     Intent in;
     String id;
     TextView textView;
+    static final int GET_STRING =1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTitle("메인 페이지");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainpage);
         textView=(TextView)findViewById(R.id.textView);
@@ -29,8 +31,12 @@ public class Mainpage extends AppCompatActivity {
 
     /*나무 버튼 클릭*/
     public void tree(View target){
-        Intent intent = new Intent(getApplicationContext(), Family_Tree.class);
-        startActivity(intent);
+        Intent in = new Intent(Mainpage.this, Family_Tree.class);
+        in.putExtra("ID",id);
+        setResult(RESULT_OK,in);
+        startActivityForResult(in,GET_STRING);
+
+
     }
     /*퀘스트 버튼 클릭*/
     public void quest(View target){

@@ -79,7 +79,7 @@ public class Signup extends AppCompatActivity {
             family1="3";
 
 
-        db.execSQL("INSERT INTO contacts VALUES ( null, '" + id2 +"', '"+ passwd2 + "', '"+familycode2+"', '"+0+"', '"+"미실시"+ "');");
+        db.execSQL("INSERT INTO contacts VALUES ( null, '" + id2 +"', '"+ passwd2 + "', '"+familycode2+"', '"+0+"', '"+"미실시"+"');");
         Toast.makeText(getApplicationContext(),"성공적으로 추가되었습니다.",Toast.LENGTH_SHORT).show();
 
         finish();
