@@ -51,8 +51,10 @@ public class Mainpage extends AppCompatActivity {
     }
     /*일정 버튼 클릭*/
     public void calendar(View target){
-        Intent intent = new Intent(getApplicationContext(), Family_Calendar.class);
-        startActivity(intent);
+        Intent in2 = new Intent(getApplicationContext(), Family_Calendar.class);
+        in2.putExtra("ID2",id);
+        setResult(RESULT_OK,in2);
+        startActivityForResult(in2,GET_STRING);
     }
     /*데이트코스 버튼 클릭*/
     public void date(View target){

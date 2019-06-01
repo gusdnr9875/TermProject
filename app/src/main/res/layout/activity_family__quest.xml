@@ -24,21 +24,36 @@
         android:layout_gravity="center"
         android:text="퀘스트 완료시에 팝업메뉴를 클릭해주세요" />
 
-    <Button
-        android:id="@+id/button7"
-
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:onClick="week"
-        android:text="주간퀘스트" />
+        android:orientation="horizontal"
+        android:gravity="center">
 
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/button7"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="week"
+            android:text="주간퀘스트" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:text="월간퀘스트" />
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:onClick="monthq"
+            android:text="월간퀘스트" />
+    </LinearLayout>
 
 </LinearLayout>

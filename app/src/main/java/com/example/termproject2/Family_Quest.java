@@ -38,8 +38,9 @@ public class Family_Quest extends AppCompatActivity {
 
 
 
-    String quest2[]={"가족들과 주말에 약속잡기","가족들과 재밌는 영화보기","다함께 집 청소 하기" ,"자녀에게 용돈주기","가족과 함께 친척에게 놀러가기"};
-    int questCnt2=0,questTarget2=0;
+    String quest2[]={"가족들과 주말에 약속잡기","가족들과 재밌는 영화보기","다함께 집 청소 하기" ,"자녀에게 용돈주기","가족과 함께 친척에게 놀러가기","가족에게 편지쓰기","가족과 포옹하기",
+            "자녀에게 용돈주기","가족과 함께 친척에게 놀러가기","가족들과 재밌는 영화보기" , "어렸을 적 사진 보기" , "다함께 집 청소 하기"};
+    int questCnt2=0;
 
 
 
@@ -149,5 +150,45 @@ public class Family_Quest extends AppCompatActivity {
         popup.show();
 
     }
+
+    public void monthq(View view){
+
+        final PopupMenu popup2=new PopupMenu(this,button);
+        popup2.getMenuInflater().inflate(R.menu.popup2,popup2.getMenu());
+
+
+        popup2.getMenu().add(quest2[0]);
+        popup2.getMenu().add(quest2[1]);
+        popup2.getMenu().add(quest2[2]);
+
+        popup2.setOnMenuItemClickListener(
+                new PopupMenu.OnMenuItemClickListener(){
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        Toast.makeText(getApplicationContext(),item.getTitle()+"를 완료하셨습니다.\n"+"경험치30EXP를 획득하셨습니다.",Toast.LENGTH_SHORT).show();
+
+                        //   db.execSQL("UPDATE contacts SET point=point+10 ,current=  "+ " WHERE id ='" + id + "';");
+                        db.execSQL("UPDATE contacts SET point=point+30 ,current='"+item.getTitle()+"'  "+ " WHERE id ='" + id + "';");
+                        // db.close();
+
+                        questCnt2+=3;
+                        quest2[0]=quest2[questCnt];
+                        quest2[1]=quest2[questCnt+1];
+                        quest2[2]=quest2[questCnt+2];
+                        if(questCnt2>=6) questCnt2=0;
+
+
+
+                        return true;
+
+                    }
+                });
+
+
+        popup2.show();
+
+    }
+
+
 
 }
