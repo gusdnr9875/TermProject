@@ -10,10 +10,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="퀘스트 완료 기록"
-        android:layout_marginTop="50dp"/>
+       />
 
     <ListView
+        android:id="@+id/listView2"
         android:layout_width="match_parent"
-        android:layout_height="300dp" />
+        android:layout_height="272dp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="퀘스트 완료시에 팝업메뉴를 클릭해주세요" />
+
+    <Button
+        android:id="@+id/button7"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="week"
+        android:text="주간퀘스트" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="월간퀘스트" />
 
 </LinearLayout>

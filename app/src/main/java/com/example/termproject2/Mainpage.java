@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class Mainpage extends AppCompatActivity {
-    Intent in;
+
     String id;
     TextView textView;
     static final int GET_STRING =1;
@@ -19,7 +19,7 @@ public class Mainpage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainpage);
         textView=(TextView)findViewById(R.id.textView);
-
+        Intent in;
          in = new Intent();
          in=getIntent();
         id=in.getStringExtra("ID");
@@ -32,16 +32,17 @@ public class Mainpage extends AppCompatActivity {
     /*나무 버튼 클릭*/
     public void tree(View target){
         Intent in = new Intent(Mainpage.this, Family_Tree.class);
-        in.putExtra("ID",id);
+        in.putExtra("ID1",id);
         setResult(RESULT_OK,in);
         startActivityForResult(in,GET_STRING);
-
 
     }
     /*퀘스트 버튼 클릭*/
     public void quest(View target){
-        Intent intent = new Intent(getApplicationContext(), Family_Quest.class);
-        startActivity(intent);
+        Intent in2 = new Intent(getApplicationContext(), Family_Quest.class);
+        in2.putExtra("ID2",id);
+        setResult(RESULT_OK,in2);
+        startActivityForResult(in2,GET_STRING);
     }
     /*갤러리 버튼 클릭*/
     public void gallery(View target){

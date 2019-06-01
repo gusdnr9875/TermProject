@@ -32,7 +32,7 @@ public class Family_Tree extends AppCompatActivity {
         imageView=(ImageView)findViewById(R.id.imageView);
         in = new Intent();
         in=getIntent();
-        id=in.getStringExtra("ID");
+        id=in.getStringExtra("ID1");
 
         listView=(ListView)findViewById(R.id.listView);
         helper =new DBHelper(this);
@@ -67,15 +67,15 @@ public class Family_Tree extends AppCompatActivity {
             db2= helper2.getReadableDatabase();
         }
 
-        cursor2=db2.rawQuery("SELECT  id, familycode, current FROM contacts WHERE familycode='"+familycode +"';",null);
+        cursor2=db2.rawQuery("SELECT  id, familycode, point FROM contacts WHERE familycode='"+familycode +"';",null);
         cursor2.moveToFirst();
         while(cursor2.moveToNext() ){
             String id2=cursor2.getString(0);
             String family=cursor2.getString(1);
-            String current=cursor2.getString(2);
-            if(!current.equals("미실시"))
-                total+= Integer.parseInt(current);
-            arr[cnt]=id2+" : "+current+"EXP   ";
+            int point=cursor2.getInt(2);
+
+            total+= point;
+            arr[cnt]=id2+" : "+Integer.toString(point)+"EXP   ";
             cnt++;
 
 
