@@ -6,6 +6,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -17,11 +18,11 @@ public class FamilyTree extends AppCompatActivity {
     SQLiteDatabase db,db2;
     Cursor cursor;
     Cursor cursor2;
-    String id, familycode;
+    String id, familycode,skin="0";
     ImageView imageView;
     ListView listView;
     String[] arr= new String[10];
-
+    static final int GET_STRING =1;
     int cnt=1,total=0;
 
     @Override
@@ -91,13 +92,44 @@ public class FamilyTree extends AppCompatActivity {
         listView.setAdapter(adapter);
 
 
+        if(skin.equals("0")){
 
-        total=1;
-        if(total>0)
-            imageView.setImageResource(R.drawable.b);
+        if(total>100)
+            imageView.setImageResource(R.drawable.tree3);
+        else if(total>40)
+            imageView.setImageResource(R.drawable.tree2);
+
+        else
+            imageView.setImageResource(R.drawable.tree1);
+
+        }
+        else{
+            imageView.setImageResource(R.drawable.tree4);
+        }
+        Toast.makeText(getApplicationContext(),skin,Toast.LENGTH_SHORT).show();
+    }
+
+ //나무 스킨
+    public  void skin(View view){
+        Intent in = new Intent(FamilyTree.this, TreeSkin.class);
+        in.putExtra("SKIN",skin);
+        setResult(RESULT_OK,in);
+        startActivityForResult(in,GET_STRING);
+
 
     }
 
+
+    @Override
+    protected  void onActivityResult(int requestCode,int resultCode, Intent data){
+        if(requestCode==GET_STRING)
+            if(resultCode==RESULT_OK){
+                skin="1";
+                Toast.makeText(getApplicationContext(),"스킨이 적용되었습니다. ",Toast.LENGTH_SHORT).show();
+            }
+
+
+    }
 
 
 }

@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/back3"
     >
     <TextView
         android:id="@+id/textView"
@@ -37,12 +38,15 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:orientation="horizontal">
+
         <Button
             android:id="@+id/login"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:onClick="Login"
+            android:background="@drawable/button"
             android:text="로그인" />
 
         <Button
@@ -50,6 +54,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:onClick="signup"
+            android:background="@drawable/button"
             android:text="회원가입" />
 
     </LinearLayout>

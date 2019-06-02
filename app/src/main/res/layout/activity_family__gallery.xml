@@ -22,17 +22,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
+        android:gravity="center"
         >
-        <ImageView
-            android:id="@+id/gallery_blank"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:visibility="invisible"
-            />
+
         <Button
             android:id="@+id/gallery_plus"
             android:layout_width="150dp"
+            android:background="@drawable/button"
             android:layout_height="wrap_content"
             android:onClick="gallery_plus"
             android:text="사진 추가"

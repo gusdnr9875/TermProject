@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
    //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTitle("로그인 화면");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         helper =new DBHelper(this);

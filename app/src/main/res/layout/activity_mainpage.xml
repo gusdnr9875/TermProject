@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/back3"
     >
 
 
@@ -18,6 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="100dp"
+        android:background="@drawable/button"
         android:onClick="tree"
         android:text="가족 나무" />
 
@@ -27,6 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
+        android:background="@drawable/button"
         android:onClick="quest"
         android:text="우리가족 퀘스트" />
 
@@ -36,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
+        android:background="@drawable/button"
         android:onClick="gallery"
         android:text="가족 앨범" />
 
@@ -45,6 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
+        android:background="@drawable/button"
         android:onClick="calendar"
         android:text="가족 일정" />
 
@@ -54,6 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
+        android:background="@drawable/button"
         android:onClick="date"
         android:text="가족 데이트 코스" />
 
@@ -63,6 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
+        android:background="@drawable/button"
         android:onClick="exit"
         android:text="나가기" />
 

@@ -48,6 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="verify"
+            android:background="@drawable/button"
             android:text="확인" />
 
         <Button
@@ -56,6 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="cancel"
+            android:background="@drawable/button"
             android:text="취소" />
     </LinearLayout>
 </LinearLayout>
