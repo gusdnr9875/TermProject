@@ -84,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
 
 
        cursor = db.rawQuery("SELECT  id, passwd FROM contacts WHERE id='"+id +"';",null);
-       Toast.makeText(getApplicationContext(),"성asd ",Toast.LENGTH_SHORT).show();
 
        while(cursor.moveToNext() ){
            String asd=cursor.getString(1);

@@ -34,6 +34,7 @@ public class FamilyTree extends AppCompatActivity {
         in = new Intent();
         in=getIntent();
         id=in.getStringExtra("ID1");
+        skin=in.getStringExtra("SKIN");
 
         listView=(ListView)findViewById(R.id.listView);
         helper =new DBHelper(this);
@@ -106,10 +107,14 @@ public class FamilyTree extends AppCompatActivity {
         else{
             imageView.setImageResource(R.drawable.tree4);
         }
-        Toast.makeText(getApplicationContext(),skin,Toast.LENGTH_SHORT).show();
+        Intent intent2=new Intent();
+        intent2.putExtra("SKIN",skin);
+        setResult(RESULT_OK,intent2);
+        //finish();
     }
 
- //나무 스킨
+
+    //나무 스킨
     public  void skin(View view){
         Intent in = new Intent(FamilyTree.this, TreeSkin.class);
         in.putExtra("SKIN",skin);
@@ -122,6 +127,8 @@ public class FamilyTree extends AppCompatActivity {
 
     @Override
     protected  void onActivityResult(int requestCode,int resultCode, Intent data){
+
+
         if(requestCode==GET_STRING)
             if(resultCode==RESULT_OK){
                 skin="1";

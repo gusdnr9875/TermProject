@@ -8,10 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Mainpage extends AppCompatActivity {
 
-    String id;
+    String id,skin="0";
     TextView textView;
     static final int GET_STRING =1;
     String familycode;
@@ -58,6 +59,7 @@ public class Mainpage extends AppCompatActivity {
     public void tree(View target){
         Intent in = new Intent(Mainpage.this, FamilyTree.class);
         in.putExtra("ID1",id);
+        in.putExtra("SKIN",skin);
         setResult(RESULT_OK,in);
         startActivityForResult(in,GET_STRING);
 
@@ -91,5 +93,17 @@ public class Mainpage extends AppCompatActivity {
     public void exit(View target){
        finish();
     }
+
+
+
+    @Override
+    protected  void onActivityResult(int requestCode,int resultCode, Intent data){
+        if(requestCode==GET_STRING)
+            if(resultCode==RESULT_OK){
+                skin="1";
+
+            }
+    }
+
 
 }

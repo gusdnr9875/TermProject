@@ -111,6 +111,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="가족들과 가족코드를 맞춰주세요."
+            android:textAlignment="center"
             android:inputType="textPersonName" />
     </LinearLayout>
 
