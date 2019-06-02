@@ -1,11 +1,16 @@
 package com.example.termproject2;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.BitmapFactory;
 import android.os.Environment;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
     EditText editText2;
     String id,passwd,familycode,member;
     static final int GET_STRING =1;
+
+    // notification
+    public static final int NOTIFICATION_ID =1;
+   //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +54,23 @@ public class MainActivity extends AppCompatActivity {
         editText=findViewById(R.id.id);
         editText2=findViewById(R.id.passwd);
 
+        // 알림설정
+        NotificationCompat.Builder builder= new NotificationCompat.Builder(this,"default");
+        builder.setSmallIcon(R.drawable.heart);
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,0);
+
+        builder.setContentIntent(pendingIntent);
+        builder.setLargeIcon(BitmapFactory.decodeResource(getResources(),R.drawable.heart));
+        builder.setContentTitle("FamilyCation");
+        builder.setContentText("1");
+        builder.setDefaults(Notification.DEFAULT_VIBRATE);
+        builder.setPriority(Notification.PRIORITY_DEFAULT);
+        builder.setAutoCancel(true);
+        builder.setSubText("퀘스트를 완료해 멋진 가족나무를 만들어 보세요");
+
+        NotificationManager notificationManager =(NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.notify(NOTIFICATION_ID,builder.build());
 
     }
 

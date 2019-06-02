@@ -40,6 +40,7 @@ public class Signup extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTitle("회원 가입");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         helper = new DBHelper(this);
