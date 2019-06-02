@@ -3,12 +3,17 @@ package com.example.termproject2;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.DatePicker;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,10 +32,18 @@ public class Family_Calendar extends AppCompatActivity {
     CalendarView calendarView;
     int year,month,day;
     TextView textView;
-    String title,content;
-    String[] arr= {"","","","",""};
-    int arr_cnt=0;
+    String title,content,familycode;
 
+
+
+    DBCalendar helper,helper2;
+    SQLiteDatabase db,db2;
+    Cursor cursor;
+
+
+    String arr[]= new String[10];
+    int arr_cnt=0;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +52,12 @@ public class Family_Calendar extends AppCompatActivity {
         setContentView(R.layout.activity_family__calendar);
         button=findViewById(R.id.button9);
         calendarView= (CalendarView) findViewById(R.id.calendarView);
-
+        listView=(ListView)findViewById(R.id.listview10);
 
         in = new Intent();
         in=getIntent();
         id=in.getStringExtra("ID2");
-
+        familycode=in.getStringExtra("FAMILYCODE2");
 
         final Calendar calendar=Calendar.getInstance();
         year=calendar.get(Calendar.YEAR);
@@ -59,6 +72,38 @@ public class Family_Calendar extends AppCompatActivity {
                 day = dayOfMonth1;
                 }
         });
+
+        helper =new DBCalendar(this);
+
+        try{
+            db = helper.getWritableDatabase();
+        }
+        catch (SQLException ex){
+            db= helper.getReadableDatabase();
+        }
+
+
+
+        cursor = db.rawQuery("SELECT  content, familycode FROM calendar WHERE familycode='"+familycode +"';",null);
+
+        while(cursor.moveToNext() ){
+            String asd=cursor.getString(0);
+            arr[arr_cnt++]=asd;
+
+        }
+
+
+        String arr2[]=new String[arr_cnt];
+        for(int i=0;i<arr_cnt;i++){
+            arr2[i]=arr[i];
+        }
+        if(arr_cnt>0) {
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arr2);
+            listView.setAdapter(adapter);
+
+        }
+
+
 
     }
 
@@ -75,9 +120,13 @@ public class Family_Calendar extends AppCompatActivity {
             if(resultCode==RESULT_OK){
                 title=data.getStringExtra("TITLE");
                 content=data.getStringExtra("CONTENT");
-                arr[arr_cnt++]=Integer.toString(year)+"/"+Integer.toString(month)+"/"+Integer.toString(day)+": "+title+"-"+content;
+                String cona=Integer.toString(year)+"/"+Integer.toString(month)+"/"+Integer.toString(day)+": "+title+"-"+content;
 
                 Toast.makeText(getApplicationContext(),arr[0],Toast.LENGTH_SHORT).show();
+
+                db.execSQL("INSERT INTO calendar VALUES ( null, '" + cona+"', '"+ familycode +"');");
+
+               // finish();
 
 
             }

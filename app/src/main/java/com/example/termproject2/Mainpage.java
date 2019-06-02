@@ -1,6 +1,9 @@
 package com.example.termproject2;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +16,11 @@ public class Mainpage extends AppCompatActivity {
     String id;
     TextView textView;
     static final int GET_STRING =1;
+    String familycode;
+    DBHelper helper;
+    SQLiteDatabase db;
+    Cursor cursor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTitle("메인 페이지");
@@ -24,6 +32,25 @@ public class Mainpage extends AppCompatActivity {
          in=getIntent();
         id=in.getStringExtra("ID");
          textView.setText(id.toString()+"님 환영합니다.");
+
+        helper =new DBHelper(this);
+
+        try{
+            db = helper.getWritableDatabase();
+        }
+        catch (SQLException ex){
+            db= helper.getReadableDatabase();
+        }
+
+        cursor = db.rawQuery("SELECT  id, familycode, current FROM contacts WHERE id='"+id +"';",null);
+
+        while(cursor.moveToNext() ){
+            familycode= cursor.getString(1);
+            break;
+        }
+
+
+
 
     }
 
@@ -53,6 +80,7 @@ public class Mainpage extends AppCompatActivity {
     public void calendar(View target){
         Intent in2 = new Intent(getApplicationContext(), Family_Calendar.class);
         in2.putExtra("ID2",id);
+        in2.putExtra("FAMILYCODE2",familycode);
         setResult(RESULT_OK,in2);
         startActivityForResult(in2,GET_STRING);
     }
