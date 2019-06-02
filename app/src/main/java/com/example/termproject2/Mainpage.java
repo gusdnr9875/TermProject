@@ -7,8 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class Mainpage extends AppCompatActivity {
@@ -58,7 +56,7 @@ public class Mainpage extends AppCompatActivity {
 
     /*나무 버튼 클릭*/
     public void tree(View target){
-        Intent in = new Intent(Mainpage.this, Family_Tree.class);
+        Intent in = new Intent(Mainpage.this, FamilyTree.class);
         in.putExtra("ID1",id);
         setResult(RESULT_OK,in);
         startActivityForResult(in,GET_STRING);
@@ -66,19 +64,19 @@ public class Mainpage extends AppCompatActivity {
     }
     /*퀘스트 버튼 클릭*/
     public void quest(View target){
-        Intent in2 = new Intent(getApplicationContext(), Family_Quest.class);
+        Intent in2 = new Intent(getApplicationContext(), FamilyQuest.class);
         in2.putExtra("ID2",id);
         setResult(RESULT_OK,in2);
         startActivityForResult(in2,GET_STRING);
     }
     /*갤러리 버튼 클릭*/
     public void gallery(View target){
-        Intent intent = new Intent(getApplicationContext(), Family_Gallery.class);
+        Intent intent = new Intent(getApplicationContext(), com.example.termproject2.FamilyGallery.class);
         startActivity(intent);
     }
     /*일정 버튼 클릭*/
     public void calendar(View target){
-        Intent in2 = new Intent(getApplicationContext(), Family_Calendar.class);
+        Intent in2 = new Intent(getApplicationContext(), FamilyCalendar.class);
         in2.putExtra("ID2",id);
         in2.putExtra("FAMILYCODE2",familycode);
         setResult(RESULT_OK,in2);
@@ -86,7 +84,7 @@ public class Mainpage extends AppCompatActivity {
     }
     /*데이트코스 버튼 클릭*/
     public void date(View target){
-        Intent intent = new Intent(getApplicationContext(), Family_Date.class);
+        Intent intent = new Intent(getApplicationContext(), FamilyDate.class);
         startActivity(intent);
     }
     /*나가기 버튼 클릭(미완성)*/

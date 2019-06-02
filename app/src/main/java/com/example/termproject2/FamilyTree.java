@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class Family_Tree extends AppCompatActivity {
+public class FamilyTree extends AppCompatActivity {
     Intent in;
     DBHelper helper,helper2;
     SQLiteDatabase db,db2;

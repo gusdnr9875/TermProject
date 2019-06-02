@@ -23,7 +23,7 @@ import java.util.Calendar;
 
 
 
-public class Family_Calendar extends AppCompatActivity {
+public class FamilyCalendar extends AppCompatActivity {
     static final  int GET_STRING=1;
 
     Intent in;

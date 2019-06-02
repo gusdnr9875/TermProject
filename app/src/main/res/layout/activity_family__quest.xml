@@ -33,7 +33,7 @@
         <Button
             android:id="@+id/button7"
 
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:onClick="week"
@@ -45,15 +45,15 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
-
         <Button
             android:id="@+id/button8"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+
             android:onClick="monthq"
             android:text="월간퀘스트" />
+
     </LinearLayout>
 
 </LinearLayout>

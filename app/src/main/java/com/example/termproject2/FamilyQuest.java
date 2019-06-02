@@ -18,7 +18,7 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Family_Quest extends AppCompatActivity {
+public class FamilyQuest extends AppCompatActivity {
     DBHelper helper,helper2;
     SQLiteDatabase db,db2;
     Cursor cursor;

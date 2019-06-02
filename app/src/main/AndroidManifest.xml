@@ -10,11 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".CalendarReservation"></activity>
-        <activity android:name=".Family_Tree" />
-        <activity android:name=".Family_Quest" />
-        <activity android:name=".Family_Gallery" />
-        <activity android:name=".Family_Date" />
-        <activity android:name=".Family_Calendar" />
+        <activity android:name=".FamilyTree" />
+        <activity android:name=".FamilyQuest" />
+        <activity android:name=".FamilyGallery" />
+        <activity android:name=".FamilyDate" />
+        <activity android:name=".FamilyCalendar" />
         <activity android:name=".Signup" />
         <activity android:name=".Mainpage" />
         <activity android:name=".MainActivity">

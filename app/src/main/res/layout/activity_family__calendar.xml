@@ -17,16 +17,15 @@
             android:layout_weight="1" />
     </LinearLayout>
 
+    <ListView
+        android:id="@+id/listview10"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:transcriptMode="alwaysScroll"/>
     <Button
         android:id="@+id/button9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="reservation"
         android:text="일정 예약하기" />
-
-    <ListView
-        android:id="@+id/listview10"
-        android:layout_width="match_parent"
-        android:layout_height="257dp"
-        android:transcriptMode="alwaysScroll"/>
 </LinearLayout>
