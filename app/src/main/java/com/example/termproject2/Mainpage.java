@@ -100,7 +100,7 @@ public class Mainpage extends AppCompatActivity {
     protected  void onActivityResult(int requestCode,int resultCode, Intent data){
         if(requestCode==GET_STRING)
             if(resultCode==RESULT_OK){
-                skin="1";
+                //skin="1";
 
             }
     }
